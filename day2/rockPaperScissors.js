@@ -30,6 +30,12 @@ const winningMoves = {
   'Rock': 'Scissors'
 };
 
+const losingMoves = {
+  'Rock': 'Paper',
+  'Paper': 'Scissors',
+  'Scissors': 'Rock'
+};
+
 const scores = {
   'Rock': 1,
   'Paper': 2,
@@ -44,18 +50,37 @@ const part1 = (sortedInput) => {
   sortedInput.forEach((pairOfMoves) => {
     let elfMove = moves[pairOfMoves[0]];
     let myMove = moves[pairOfMoves[1]];
-    // console.log('score is currently:', myScore);
-    // console.log('elf played, ', elfMove, 'I played ', myMove );
+
     if (elfMove === myMove) {
-      // console.log('draw');
       myScore += scores['Draw'];
       myScore += scores[myMove];
-      // console.log('draw', myScore);
     } else if (winningMoves[elfMove] === myMove) {
-      // console.log('elf wins');
       myScore += scores[myMove];
     } else {
-      // console.log('I win');
+      myScore += scores['Win'];
+      myScore += scores[myMove];
+    }
+  });
+
+ return myScore;
+};
+
+const part2 = (sortedInput) => {
+  let myScore = 0;
+  sortedInput.forEach((pairOfMoves) => {
+    let elfMove = moves[pairOfMoves[0]];
+    let result = partTwoMoves[pairOfMoves[1]];
+    let myMove;
+        
+    if (result === 'Draw') {
+      myMove = elfMove;
+      myScore += scores['Draw'];
+      myScore += scores[myMove];
+    } else if (result === 'Lose') {
+      myMove = winningMoves[elfMove];
+      myScore += scores[myMove];
+    } else if (result === 'Win') {
+      myMove = losingMoves[elfMove];
       myScore += scores['Win'];
       myScore += scores[myMove];
     }
@@ -65,4 +90,4 @@ const part1 = (sortedInput) => {
 };
 
 // console.log(part1(sortedInput));
-
+console.log(part2(sortedInput));
