@@ -3,7 +3,6 @@ const fs = require('fs');
 const input = fs.readFileSync('./input.txt', 'utf-8');
 const splitInput = input.split(/\r?\n/);
 
-
 let listOfCalories = [];
 let workingCalories = [];
 
@@ -21,7 +20,6 @@ for (let i = 0; i < splitInput.length; i++) {
   }
   
 };
-
 
 let maxCalories = 0;
 let listOfAllCalorieSums = [];
