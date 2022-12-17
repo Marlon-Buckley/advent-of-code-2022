@@ -28,13 +28,6 @@ const part1 = (splitInput) => {
   return result;
 };
 
-console.log(part1(splitInput));
-
-const commonItem = (backpack1, backpack2, backpack3) => {
-  commonChar = '';
-
-  return commonChar;
-}
 
 const part2 = (splitInput) => {
   let backpacks = [];
@@ -59,5 +52,5 @@ const part2 = (splitInput) => {
   return result;
 }
 
+console.log(part1(splitInput));
 console.log(part2(splitInput));
-
