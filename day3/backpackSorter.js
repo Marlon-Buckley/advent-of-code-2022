@@ -11,6 +11,7 @@ const findItemCode = (item) => {
   }
 };
 
+
 const part1 = (splitInput) => {
   let result = 0;
 
