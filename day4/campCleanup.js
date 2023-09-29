@@ -3,7 +3,7 @@ const fs = require("fs");
 const input = fs.readFileSync("./input.txt", "utf-8");
 const splitInput = input.split(/\r?\n/);
 
-const rangeGenerator = (start, end) => {
+const createRangesFromArray = (start, end) => {
   return Array(end - start + 1)
     .fill()
     .map((_, idx) => start + idx);
@@ -30,8 +30,8 @@ const convertInputToArrayOfNumberPairs = (splitInput) => {
 const part1 = (rangePairs) => {
   let matchCount = 0;
   rangePairs.forEach((pair) => {
-    let firstRange = rangeGenerator(pair[0][0], pair[0][1]);
-    let secondRange = rangeGenerator(pair[1][0], pair[1][1]);
+    let firstRange = createRangesFromArray(pair[0][0], pair[0][1]);
+    let secondRange = createRangesFromArray(pair[1][0], pair[1][1]);
 
     if (secondRange.every((element) => firstRange.includes(element))) {
       matchCount++;
@@ -49,8 +49,8 @@ const part2 = (inputPairs) => {
   let count = 0;
 
   inputPairs.forEach((pair) => {
-    const firstRange = rangeGenerator(pair[0][0], pair[0][1]);
-    const secondRange = rangeGenerator(pair[1][0], pair[1][1]);
+    const firstRange = createRangesFromArray(pair[0][0], pair[0][1]);
+    const secondRange = createRangesFromArray(pair[1][0], pair[1][1]);
     if (firstRange.some((item) => secondRange.includes(item))) {
       count++;
     }
