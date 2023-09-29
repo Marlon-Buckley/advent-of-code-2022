@@ -9,7 +9,7 @@ const createRangesFromArray = (start, end) => {
     .map((_, idx) => start + idx);
 };
 
-const convertInputToArrayOfNumberPairs = (splitInput) => {
+const convertInputToArray = (splitInput) => {
   let pairs = [];
   splitInput.forEach((rangePair) => {
     let workingRange = [];
@@ -43,7 +43,7 @@ const part1 = (rangePairs) => {
   return `There are ${matchCount} ranges that fully contain another`;
 };
 
-const rangePairs = convertInputToArrayOfNumberPairs(splitInput);
+const rangePairs = convertInputToArray(splitInput);
 
 const part2 = (inputPairs) => {
   let count = 0;
