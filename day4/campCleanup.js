@@ -1,6 +1,6 @@
-const fs = require("fs");
+import { readFileSync } from "fs";
 
-const input = fs.readFileSync("./input.txt", "utf-8");
+const input = readFileSync("./input.txt", "utf-8");
 const splitInput = input.split(/\r?\n/);
 
 const createRangesFromArray = (start, end) => {
